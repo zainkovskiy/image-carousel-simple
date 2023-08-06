@@ -8,7 +8,7 @@
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anton Zainkovskii",
   "license": "ISC",
   "description": "image carousel",
   "dependencies": {

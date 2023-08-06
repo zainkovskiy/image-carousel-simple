@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import './ImageCarouselSimple.scss';
 import Background from '../Background/Background';
 import styled from '@emotion/styled';
 import Image from '../Image/Image';
@@ -46,9 +45,10 @@ const GalaryStyle = styled.div<IGalaryStyleProps>`
   overflow: hidden;
   width: ${({ width }) => width ? width + 'px' : '100%'};
   height: ${({ height }) => height ? height + 'px' : '100%'};
+  background-color: #000;
 `
 
-export const Galary: React.FC<IImageList> = (props) => {
+const Galary: React.FC<IImageList> = (props) => {
   const { images, width, cover, height } = props;
   const [[page, direction], setPage] = useState([0, 0]);
   const imageIndex = wrap(0, images.length, page);
@@ -78,3 +78,4 @@ export const Galary: React.FC<IImageList> = (props) => {
     </GalaryStyle>
   );
 };
+export default Galary;

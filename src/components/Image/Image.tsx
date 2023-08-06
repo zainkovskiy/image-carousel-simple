@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import styled from '@emotion/styled';
 
 interface IImageItem {
   direction: number,
@@ -25,9 +26,16 @@ const variants = {
     };
   }
 };
+const ImageStyle = styled(motion.img)`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+`
 const Image: React.FC<IImageItem> = ({ direction, url }) => {
   return (
-    <motion.img
+    <ImageStyle
       className='image-carousel__img'
       key={url}
       src={url}

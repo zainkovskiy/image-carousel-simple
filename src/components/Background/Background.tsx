@@ -1,5 +1,4 @@
 import React from 'react';
-import { IImage } from '../../types/imageType';
 import styled from '@emotion/styled';
 
 interface IBackgroundStyleProps {
@@ -21,9 +20,7 @@ interface IImageItem {
 
 const Background: React.FC<IImageItem> = ({ url }) => {
   return (
-    <BackgroundStyle $url={url}
-    >
-    </BackgroundStyle>
+    <BackgroundStyle $url={url}/>
   );
 };
 export default Background;
