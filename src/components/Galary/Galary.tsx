@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import Background from '../Background/Background';
@@ -50,7 +50,7 @@ const GalaryStyle = styled.div<IGalaryStyleProps>`
 
 const Galary: React.FC<IImageList> = (props) => {
   const { images, width, cover, height } = props;
-  const [[page, direction], setPage] = useState([0, 0]);
+  const [[page, direction], setPage] = React.useState([0, 0]);
   const imageIndex = wrap(0, images.length, page);
   
   const paginate = (newDirection: number) => {
