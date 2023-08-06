@@ -1,5 +1,8 @@
 {
-  "name": "image-carousel-simple",
+  "name": "@zainkovskiy/image-carousel-simple",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/zainkovskiy"
+  },
   "version": "0.0.1",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
