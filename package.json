@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/zainkovskiy"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
@@ -20,8 +20,10 @@
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
+    "@types/react": ">= 18.2.18",
     "framer-motion": "^10.15.0",
     "popmotion": "^11.0.5",
+    "react": ">= 18.2.0",
     "rollup": "^3.27.2",
     "rollup-plugin-dts": "^5.3.1",
     "styled-components": "^6.0.7",
