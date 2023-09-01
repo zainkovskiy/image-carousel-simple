@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/zainkovskiy"
   },
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
   },
@@ -12,14 +12,14 @@
   "license": "ISC",
   "description": "image carousel",
   "peerDependencies": {
-    "react": ">= 18.2.0"
+    "react": ">= 18.2.0",
+    "@types/react": ">= 18.2.18"
   },
   "dependencies": {
     "@emotion/styled": "^11.11.0",
     "@rollup/plugin-commonjs": "^25.0.3",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
-    "@types/react": "^18.2.18",
     "framer-motion": "^10.15.0",
     "popmotion": "^11.0.5",
     "rollup": "^3.27.2",
