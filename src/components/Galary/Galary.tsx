@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { wrap } from 'popmotion';
 import Background from '../Background/Background';
 import styled from '@emotion/styled';
@@ -16,26 +16,6 @@ interface IImageList {
   height: number;
   cover?: boolean;
 }
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-};
 interface IGalaryStyleProps {
   width?: number;
   height?: number;
