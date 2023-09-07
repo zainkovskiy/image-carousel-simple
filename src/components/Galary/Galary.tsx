@@ -5,16 +5,20 @@ import Background from '../Background/Background';
 import styled from '@emotion/styled';
 import Image from '../Image/Image';
 import Button from '../Button/Button';
+import StatusText from '../StatusText/StatusText';
 
 interface IImage {
   url: string;
 }
 
-interface IImageList {
+interface IGalary {
   images: IImage[];
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   cover?: boolean;
+  status?: boolean;
+  statusPositionX?: 'right' | 'left';
+  statusPositionY?: 'top' | 'bottom';
 }
 interface IGalaryStyleProps {
   width?: number;
@@ -27,9 +31,23 @@ const GalaryStyle = styled.div<IGalaryStyleProps>`
   height: ${({ height }) => (height ? height + 'px' : '100%')};
   background-color: #000;
 `;
-
-const Galary: React.FC<IImageList> = (props) => {
-  const { images, width, cover, height } = props;
+const ZoomButton = styled.div`
+  position: absolute;
+  z-index: 99;
+  bottom: 0.5rem;
+  right: 10%;
+  background-color: #fff;
+`;
+const Galary: React.FC<IGalary> = (props) => {
+  const {
+    images,
+    width,
+    cover,
+    height,
+    status,
+    statusPositionX,
+    statusPositionY,
+  } = props;
   const [[page, direction], setPage] = useState([0, 0]);
   const imageIndex = wrap(0, images.length, page);
 
@@ -38,6 +56,19 @@ const Galary: React.FC<IImageList> = (props) => {
   };
   return (
     <GalaryStyle width={width} height={height}>
+      {status && (
+        <>
+          {images.length > 0 ? (
+            <StatusText
+              status={`${imageIndex + 1}/${images.length}`}
+              statusPositionX={statusPositionX}
+              statusPositionY={statusPositionY}
+            />
+          ) : (
+            ''
+          )}
+        </>
+      )}
       {cover && <Background url={images[imageIndex].url} />}
       <AnimatePresence initial={false} custom={direction}>
         <Image direction={direction} url={images[imageIndex].url} />
