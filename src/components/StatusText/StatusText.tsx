@@ -3,39 +3,25 @@ import React from 'react';
 
 interface IStatusText {
   status: string;
-  statusPositionX?: 'right' | 'left';
-  statusPositionY?: 'top' | 'bottom';
 }
-interface IStatusTextStyleProps {
-  $statusPositionX?: 'right' | 'left';
-  $statusPositionY?: 'top' | 'bottom';
-}
+interface IStatusTextStyleProps {}
 const StatusTextStyle = styled.p<IStatusTextStyleProps>`
   font-size: 10px;
   font-family: sans-serif;
-  color: #fff173;
+  color: rgb(255 255 255);
   letter-spacing: 1.2px;
   position: absolute;
   z-index: 2;
-  ${({ $statusPositionY }) =>
-    $statusPositionY ? $statusPositionY : 'top'}: 0.5rem;
-  ${({ $statusPositionX }) =>
-    $statusPositionX ? $statusPositionX : 'left'}: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  background: #333;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  transform: translate(-50%, 0);
 `;
 
-const StatusText: React.FC<IStatusText> = ({
-  status,
-  statusPositionY,
-  statusPositionX,
-}) => {
-  return (
-    <StatusTextStyle
-      $statusPositionY={statusPositionY}
-      $statusPositionX={statusPositionX}
-    >
-      {status}
-    </StatusTextStyle>
-  );
+const StatusText: React.FC<IStatusText> = ({ status }) => {
+  return <StatusTextStyle>{status}</StatusTextStyle>;
 };
 
 export default StatusText;

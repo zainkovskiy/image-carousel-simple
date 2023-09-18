@@ -3,28 +3,29 @@ import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 
 interface IImageItem {
-  direction: number,
-  url: string,
+  direction: number;
+  url: string;
+  toggleZoom: () => void;
 }
 const variants = {
   enter: (direction: number) => {
     return {
       x: direction > 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     };
   },
   center: {
     zIndex: 1,
     x: 0,
-    opacity: 1
+    opacity: 1,
   },
   exit: (direction: number) => {
     return {
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     };
-  }
+  },
 };
 const ImageStyle = styled(motion.img)`
   width: 100%;
@@ -32,8 +33,8 @@ const ImageStyle = styled(motion.img)`
   object-fit: contain;
   position: absolute;
   top: 0;
-`
-const Image: React.FC<IImageItem> = ({ direction, url }) => {
+`;
+const Image: React.FC<IImageItem> = ({ direction, url, toggleZoom }) => {
   return (
     <ImageStyle
       className='image-carousel__img'
@@ -41,12 +42,13 @@ const Image: React.FC<IImageItem> = ({ direction, url }) => {
       src={url}
       custom={direction}
       variants={variants}
-      initial="enter"
-      animate="center"
-      exit="exit"
+      initial='enter'
+      animate='center'
+      exit='exit'
+      onDoubleClick={toggleZoom}
       transition={{
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.2 }
+        x: { type: 'spring', stiffness: 300, damping: 30 },
+        opacity: { duration: 0.2 },
       }}
     />
   );
